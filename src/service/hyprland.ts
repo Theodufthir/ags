@@ -335,16 +335,16 @@ export class Hyprland extends Service {
                     break;
 
                 case 'activewindow':
-                    await this._syncWorkspaces(true);
-                    await this._syncClients(true);
+                    await this._syncWorkspaces(false);
+                    await this._syncClients(false);
                     this._active.client.updateProperty('class', argv[0]);
                     this._active.client.updateProperty('title', argv.slice(1).join(','));
                     this._active.client.emit('changed');
                     break;
 
                 case 'activewindowv2':
-                    await this._syncWorkspaces(true);
-                    await this._syncClients(true);
+                    await this._syncWorkspaces(false);
+                    await this._syncClients(false);
                     this._active.client.updateProperty('address', '0x' + argv[0]);
                     this._active.client.emit('changed');
                     break;
